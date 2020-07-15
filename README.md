@@ -7,7 +7,7 @@
     
     1. session table
     - save session's infomations
-    - valid field to handle case which user close app without save session 
+    - valid field => to handle cases which user close app without saving session 
     2. latLnSession table : 
     - save latitude and longitude of session with foreign key sessionId
 ### Unit Test :
