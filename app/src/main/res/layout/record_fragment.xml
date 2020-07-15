@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+    <variable
+        name="viewModel"
+        type="com.dst.trackme.ui.record.RecordViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_record"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.record.RecordFragment">
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/recordSpeedLLCenter"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <LinearLayout
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/btnAreaLL"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/recordSpeedLLCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:text="@string/speed_default_text"
+                app:speedFormat="@{viewModel.latLnLastUpdate.currentSpeed}"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:text="@string/speed_text"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/recordSpeedLLCenter"
+            app:layout_constraintTop_toTopOf="@id/recordSpeedLLCenter"
+            app:layout_constraintBottom_toBottomOf="@id/recordSpeedLLCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:text="@string/distance_default_text"
+                app:distanceFormat = "@{viewModel.sessionUpdate.distance}"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:text="@string/distance_text"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/recordSpeedLLCenter"
+            app:layout_constraintTop_toTopOf="@id/recordSpeedLLCenter"
+            app:layout_constraintBottom_toBottomOf="@id/recordSpeedLLCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                app:durationFormat="@{viewModel.timeCountUpResult}"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/btnAreaLL"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/resumeBtn"
+                android:background="@drawable/ic_refresh_48px"
+                android:onClick="@{() -> viewModel.onStartAndStopRecordClick()}"
+                android:visibility="@{viewModel.startRecord ? View.GONE : View.VISIBLE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+            <Button
+                android:onClick="@{() -> viewModel.onStartAndStopRecordClick()}"
+                android:layout_marginStart="10dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:visibility="@{viewModel.startRecord ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/recordBtn"
+                android:background="@drawable/ic_record_48px"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+            <Button
+                android:onClick="@{() -> viewModel.stopAndQuitRecord()}"
+                android:layout_marginStart="10dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:visibility="@{viewModel.startRecord ? View.GONE : View.VISIBLE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/stopRecordBtn"
+                android:background="@drawable/ic_stop_48px"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

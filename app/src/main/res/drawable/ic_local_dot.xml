@@ -1,0 +1,17 @@
+<!--
+  ~ Copyright (c) 2020. All rights reserved.
+  ~ created by thongds
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="29dp"
+    android:height="32dp"
+    android:viewportWidth="29"
+    android:viewportHeight="32">
+  <path
+      android:pathData="M14.496,0C8.7476,0 3.5716,2.472 0,6.4L14.496,32L29,6.408C25.4284,2.472 20.2524,0 14.496,0ZM6.4337,8C6.4337,6.232 7.8768,4.8 9.6586,4.8C11.4404,4.8 12.8835,6.232 12.8835,8C12.8835,9.768 11.4404,11.2 9.6586,11.2C7.8768,11.2 6.4337,9.768 6.4337,8ZM14.496,20.8C12.7142,20.8 11.2711,19.368 11.2711,17.6C11.2711,15.832 12.7142,14.4 14.496,14.4C16.2777,14.4 17.7209,15.832 17.7209,17.6C17.7209,19.368 16.2777,20.8 14.496,20.8Z"
+      android:strokeWidth="1"
+      android:fillColor="#D0021B"
+      android:fillType="nonZero"
+      android:strokeColor="#00000000"/>
+</vector>
