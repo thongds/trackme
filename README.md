@@ -2,7 +2,7 @@
 - ## App Architech
     - [x] **MVVM & Android components**
 ### Database schema :
-![alt text](https://serving.photos.photobox.com/6858503798ea2a3c1039a85b5740f4714fb1e0a07476f6b93c3f2004f90ded9d3b30b2d7.jpg)
+![alt text](https://github.com/thongds/trackme/blob/master/app/src/main/java/com/dst/trackme/data/local/schema_update.png?raw=true)
     **Explain**
     
     1. session table
