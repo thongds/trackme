@@ -50,7 +50,7 @@ fun TextView.setDistanceFormat(distance : Float){
         text = "0 m"
         return
     }
-    var distanceRound = distance.roundToInt()
+    val distanceRound = distance.roundToInt()
     val km = distanceRound/1000
     val m = distanceRound%1000
     var result = ""
@@ -66,23 +66,4 @@ fun TextView.avgSpeed(distance: Float,time : Float){
     }
     val avgSpeed = distance/time
     text = avgSpeed.speedFormat()
-}
-@BindingAdapter("app:items")
-fun RecyclerView.setItems(items: List<SessionEntry>?) {
-    items?.let {
-        (this.adapter as HistoryAdapter).submitList(items)
-    }
-}
-@BindingAdapter("app:addOnScrollListener")
-fun RecyclerView.addOnScrollListener(callback : () -> Unit){
-    val ryc = this
-    this.addOnScrollListener(object : RecyclerView.OnScrollListener(){
-        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-            val layoutManager = ryc.layoutManager as LinearLayoutManager
-            val visibleItemCount: Int = layoutManager.childCount
-            val totalItemCount: Int = layoutManager.itemCount
-            val pastVisibleItems: Int = layoutManager.findFirstVisibleItemPosition()
-            callback
-        }
-    })
 }
